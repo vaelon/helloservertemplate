@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloserver
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloserver
+  template:
+    metadata:
+      labels:
+        app: helloserver
+    spec:
+      containers:
+      - name: helloserver
+        image: vaelondocker/gobuild:7
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+
